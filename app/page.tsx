@@ -21,12 +21,12 @@ export default function Home() {
                 <DeployButton />
               </div>
             </div>
-            {!hasEnvVars ? (
-              <EnvVarWarning />
-            ) : (
+            {hasEnvVars ? (
               <Suspense>
                 <AuthButton />
               </Suspense>
+            ) : (
+              <EnvVarWarning />
             )}
           </div>
         </nav>

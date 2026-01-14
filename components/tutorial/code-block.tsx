@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const CopyIcon = () => (
   <svg
@@ -40,7 +40,7 @@ export function CodeBlock({ code }: { code: string }) {
   const [icon, setIcon] = useState(CopyIcon);
 
   const copy = async () => {
-    await navigator?.clipboard?.writeText(code);
+    await navigator.clipboard.writeText(code);
     setIcon(CheckIcon);
     setTimeout(() => setIcon(CopyIcon), 2000);
   };

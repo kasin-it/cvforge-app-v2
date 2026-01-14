@@ -22,12 +22,12 @@ export default function ProtectedLayout({
                 <DeployButton />
               </div>
             </div>
-            {!hasEnvVars ? (
-              <EnvVarWarning />
-            ) : (
+            {hasEnvVars ? (
               <Suspense>
                 <AuthButton />
               </Suspense>
+            ) : (
+              <EnvVarWarning />
             )}
           </div>
         </nav>
