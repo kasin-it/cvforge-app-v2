@@ -1,20 +1,13 @@
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
-import { InfoIcon } from "lucide-react";
-import { Suspense } from "react";
 
-async function UserDetails() {
+export default async function ProtectedPage() {
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.getClaims();
+  const { data, error } = await supabase.auth.getSession();
 
-  if (error || !data?.claims) {
+  if (error || !data.session) {
     redirect("/auth/login");
   }
-
-  return JSON.stringify(data.claims, null, 2);
-}
-
-export default function ProtectedPage() {
   return <div className="flex-1 w-full flex flex-col gap-12">protected</div>;
 }
