@@ -8,6 +8,7 @@ export const env = createEnv({
       .optional()
       .default("development"),
     VERCEL_URL: z.string().optional(),
+    OPENAI_API_KEY: z.string().min(1).optional(),
   },
   client: {
     NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
@@ -19,5 +20,6 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_URL: process.env.VERCEL_URL,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
 });
