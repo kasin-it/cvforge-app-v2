@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 import { writeFileSync, mkdirSync } from "node:fs";
-import { dirname, join } from "node:path";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { CVRendererService } from "@/lib/cv/renderer/service";
 import type { CV } from "@/lib/cv/schemas";
 
@@ -82,7 +83,7 @@ const testCV: CV = {
 };
 
 async function main() {
-  const outputDir = join(__dirname, "..", ".cv-output");
+  const outputDir = path.join(__dirname, "..", ".cv-output");
   mkdirSync(outputDir, { recursive: true });
 
   const service = new CVRendererService();
