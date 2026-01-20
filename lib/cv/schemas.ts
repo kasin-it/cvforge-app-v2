@@ -107,8 +107,7 @@ export type EnrichedCV = z.infer<typeof enrichedCvSchema>;
 
 export const renderOptionsSchema = z
   .object({
-    template: z.enum(["modern", "minimal"]).optional(),
-    format: z.enum(["pdf", "html"]).optional(),
+    template: z.enum(["modern", "minimal", "creative", "executive"]).optional(),
   })
   .strict();
 
